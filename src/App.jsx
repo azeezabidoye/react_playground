@@ -105,11 +105,20 @@ const Button = ({ onClick, text }) => {
 const App = () => {
   const [counter, setCounter] = useState(0);
 
-  const increaseByTen = () => setCounter(counter + 10);
+  const increaseByTen = () => {
+    console.log(`Rendering with counter value: ${counter}`);
+    setCounter(counter + 10);
+  };
 
-  const decreaseByTen = () => setCounter(counter - 10);
+  const decreaseByTen = () => {
+    console.log(`Rendering with counter value: ${counter}`);
+    setCounter(counter - 10);
+  };
 
-  const setToZero = () => setCounter(0);
+  const setToZero = () => {
+    console.log(`Rendering with counter value: ${counter}`);
+    setCounter(0);
+  };
 
   // setTimeout(() => {
   //   setCounter(counter + 10);
@@ -119,9 +128,9 @@ const App = () => {
   return (
     <div>
       <Display counter={counter} />
-      <Button onClick={increaseByTen} text={"Plus++"} /> <br />
-      <Button onClick={decreaseByTen} text={"Minus--"} /> <br />
+      <Button onClick={increaseByTen} text={"Plus++"} />
       <Button onClick={setToZero} text={"Reset"} />
+      <Button onClick={decreaseByTen} text={"Minus--"} />
     </div>
   );
 };
