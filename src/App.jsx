@@ -90,10 +90,24 @@ import { useState } from "react";
 //   );
 // };
 
+const Display = ({ counter }) => {
+  return (
+    <div>
+      <h4>Count: {counter}</h4>
+    </div>
+  );
+};
+
+const Button = ({ onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
+
 const App = () => {
   const [counter, setCounter] = useState(0);
 
   const increaseByTen = () => setCounter(counter + 10);
+
+  const decreaseByTen = () => setCounter(counter - 10);
 
   const setToZero = () => setCounter(0);
 
@@ -104,9 +118,10 @@ const App = () => {
 
   return (
     <div>
-      <h4>Count: {counter}</h4>
-      <button onClick={increaseByTen}>Plus+</button> <br />
-      <button onClick={setToZero}>Zero</button>
+      <Display counter={counter} />
+      <Button onClick={increaseByTen} text={"Plus++"} /> <br />
+      <Button onClick={decreaseByTen} text={"Minus--"} /> <br />
+      <Button onClick={setToZero} text={"Reset"} />
     </div>
   );
 };
