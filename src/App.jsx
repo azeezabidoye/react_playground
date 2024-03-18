@@ -93,10 +93,9 @@ import { useState } from "react";
 const App = () => {
   const [counter, setCounter] = useState(0);
 
-  const handleClick = () => {
-    console.log(`Button clicked`);
-    setCounter(counter + 10);
-  };
+  const increaseByTen = () => setCounter(counter + 10);
+
+  const setToZero = () => setCounter(0);
 
   // setTimeout(() => {
   //   setCounter(counter + 10);
@@ -106,8 +105,8 @@ const App = () => {
   return (
     <div>
       <h4>Count: {counter}</h4>
-      <button onClick={handleClick}>Plus+</button> <br />
-      <button onClick={() => setCounter(0)}>Zero</button>
+      <button onClick={increaseByTen}>Plus+</button> <br />
+      <button onClick={setToZero}>Zero</button>
     </div>
   );
 };
