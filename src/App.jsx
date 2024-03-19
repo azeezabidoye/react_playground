@@ -155,15 +155,15 @@ const App = () => {
 
   const handleLeftClick = () => {
     const newClick = {
+      ...click,
       left: click.left + 1,
-      right: click.right,
     };
     setClick(newClick);
   };
 
   const handleRightClick = () => {
     const newClick = {
-      left: click.left,
+      ...click,
       right: click.right + 1,
     };
     setClick(newClick);
@@ -171,7 +171,7 @@ const App = () => {
 
   return (
     <div>
-      {click.left} <button onClick={handleLeftClick}>Left</button>
+      {click.left} <button onClick={handleLeftClick}>Left</button> <br /> <hr />
       {click.right} <button onClick={handleRightClick}>Right</button>
     </div>
   );
