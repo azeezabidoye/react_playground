@@ -147,24 +147,51 @@ import { useState } from "react";
 //   );
 // };
 
+// const App = () => {
+//   const [click, setClick] = useState({
+//     left: 0,
+//     right: 0,
+//   });
+
+//   const handleLeftClick = () => {
+//     setClick({ ...click, left: click.left + 1 });
+//   };
+
+//   const handleRightClick = () => {
+//     setClick({ ...click, right: click.right + 1 });
+//   };
+
+//   return (
+//     <div>
+//       {click.left} <button onClick={handleLeftClick}>Left</button> <br /> <hr />
+//       {click.right} <button onClick={handleRightClick}>Right</button>
+//     </div>
+//   );
+// };
+
 const App = () => {
-  const [click, setClick] = useState({
-    left: 0,
-    right: 0,
-  });
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
+
+  const [allClicks, setAll] = useState([]);
 
   const handleLeftClick = () => {
-    setClick({ ...click, left: click.left + 1 });
+    setAll(allClicks.concat("L"));
+    setLeft(left + 1);
   };
 
   const handleRightClick = () => {
-    setClick({ ...click, right: click.right + 1 });
+    setAll(allClicks.concat("R"));
+    setRight(right + 1);
   };
 
   return (
     <div>
-      {click.left} <button onClick={handleLeftClick}>Left</button> <br /> <hr />
-      {click.right} <button onClick={handleRightClick}>Right</button>
+      {left}
+      <button onClick={handleLeftClick}>left</button> <br /> <hr />
+      <button onClick={handleRightClick}>right</button>
+      {right}
+      <p>{allClicks.join(" ")}</p>
     </div>
   );
 };
