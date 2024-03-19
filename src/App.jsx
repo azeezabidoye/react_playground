@@ -90,47 +90,89 @@ import { useState } from "react";
 //   );
 // };
 
-const Display = ({ counter }) => {
-  return (
-    <div>
-      <h4>Count: {counter}</h4>
-    </div>
-  );
-};
+// const Display = ({ counter }) => {
+//   return (
+//     <div>
+//       <h4>Count: {counter}</h4>
+//     </div>
+//   );
+// };
 
-const Button = ({ onClick, text }) => {
-  return <button onClick={onClick}>{text}</button>;
-};
+// const Button = ({ onClick, text }) => {
+//   return <button onClick={onClick}>{text}</button>;
+// };
+
+// const App = () => {
+//   const [counter, setCounter] = useState(0);
+
+//   const increaseByTen = () => {
+//     console.log(`Rendering with counter value: ${counter}`);
+//     setCounter(counter + 10);
+//   };
+
+//   const decreaseByTen = () => {
+//     console.log(`Rendering with counter value: ${counter}`);
+//     setCounter(counter - 10);
+//   };
+
+//   const setToZero = () => {
+//     console.log(`Rendering with counter value: ${counter}`);
+//     setCounter(0);
+//   };
+
+//   // setTimeout(() => {
+//   //   setCounter(counter + 10);
+//   //   console.log(`rendering ... ${counter}`);
+//   // }, 1000);
+
+//   return (
+//     <div>
+//       <Display counter={counter} />
+//       <Button onClick={increaseByTen} text={"Plus++"} />
+//       <Button onClick={setToZero} text={"Reset"} />
+//       <Button onClick={decreaseByTen} text={"Minus--"} />
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   const [left, setLeft] = useState(0);
+//   const [right, setRight] = useState(0);
+
+//   return (
+//     <div>
+//       {left} <button onClick={() => setLeft(left + 1)}>Left</button>
+//       {right} <button onClick={() => setRight(right + 1)}>Right</button>
+//     </div>
+//   );
+// };
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
+  const [click, setClick] = useState({
+    left: 0,
+    right: 0,
+  });
 
-  const increaseByTen = () => {
-    console.log(`Rendering with counter value: ${counter}`);
-    setCounter(counter + 10);
+  const handleLeftClick = () => {
+    const newClick = {
+      left: click.left + 1,
+      right: click.right,
+    };
+    setClick(newClick);
   };
 
-  const decreaseByTen = () => {
-    console.log(`Rendering with counter value: ${counter}`);
-    setCounter(counter - 10);
+  const handleRightClick = () => {
+    const newClick = {
+      left: click.left,
+      right: click.right + 1,
+    };
+    setClick(newClick);
   };
-
-  const setToZero = () => {
-    console.log(`Rendering with counter value: ${counter}`);
-    setCounter(0);
-  };
-
-  // setTimeout(() => {
-  //   setCounter(counter + 10);
-  //   console.log(`rendering ... ${counter}`);
-  // }, 1000);
 
   return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={increaseByTen} text={"Plus++"} />
-      <Button onClick={setToZero} text={"Reset"} />
-      <Button onClick={decreaseByTen} text={"Minus--"} />
+      {click.left} <button onClick={handleLeftClick}>Left</button>
+      {click.right} <button onClick={handleRightClick}>Right</button>
     </div>
   );
 };
