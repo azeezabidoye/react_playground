@@ -154,19 +154,11 @@ const App = () => {
   });
 
   const handleLeftClick = () => {
-    const newClick = {
-      ...click,
-      left: click.left + 1,
-    };
-    setClick(newClick);
+    setClick({ ...click, left: click.left + 1 });
   };
 
   const handleRightClick = () => {
-    const newClick = {
-      ...click,
-      right: click.right + 1,
-    };
-    setClick(newClick);
+    setClick({ ...click, right: click.right + 1 });
   };
 
   return (
