@@ -169,61 +169,124 @@ import { useState } from "react";
 //   );
 // };
 
-const History = (props) => {
-  if (props.allClicks.length === 0) {
-    return <div>the app is used by pressing the buttons</div>;
-  }
-  return <div>button press history: {props.allClicks.join(" ")}</div>;
-};
+// const History = (props) => {
+//   if (props.allClicks.length === 0) {
+//     return <div>the app is used by pressing the buttons</div>;
+//   }
+//   return <div>button press history: {props.allClicks.join(" ")}</div>;
+// };
 
-const Button = ({ onClick, text }) => {
-  return <button onClick={onClick}>{text}</button>;
-};
+// const Button = ({ onClick, text }) => {
+//   return <button onClick={onClick}>{text}</button>;
+// };
+
+// const App = () => {
+//   const [left, setLeft] = useState(0);
+//   const [right, setRight] = useState(0);
+
+//   const [allClicks, setAll] = useState([]);
+//   const [total, setTotal] = useState(0);
+
+//   // const handleLeftClick = () => {
+//   //   setAll(allClicks.concat("L"));
+//   //   setLeft(left + 1);
+//   //   setTotal(left + right);
+//   // };
+
+//   // const handleRightClick = () => {
+//   //   setAll(allClicks.concat("R"));
+//   //   setRight(right + 1);
+//   //   setTotal(left + right);
+//   // };
+
+//   const handleLeftClick = () => {
+//     setAll(allClicks.concat("L"));
+//     const updatedLeft = left + 1;
+//     setLeft(updatedLeft);
+//     setTotal(updatedLeft + right);
+//   };
+//   const handleRightClick = () => {
+//     setAll(allClicks.concat("R"));
+//     const updatedRight = right + 1;
+//     setRight(updatedRight);
+//     setTotal(updatedRight + left);
+//   };
+
+//   return (
+//     <div>
+//       <Button onClick={handleLeftClick} text="Left" />
+//       {left}
+//       <br /> <hr />
+//       <Button onClick={handleRightClick} text="Right" />
+//       {right}
+//       <p>{allClicks.join(" ")}</p>
+//       <p>The Total is: {total}</p>
+//       <History allClicks={allClicks} />
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   const [value, setValue] = useState(10);
+
+//   const hello = () => {
+//     // const handler = () => console.log("hello world");
+//     // return handler;
+//     console.log(`Holla holla`);
+//   };
+
+//   return (
+//     <div>
+//       {value}
+//       <button onClick={hello}>button</button>
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   const [value, setValue] = useState(10);
+
+//   // const hello = (who) => {
+//   //   const handler = () => {
+//   //     console.log("hello", who);
+//   //   };
+//   //   return handler;
+//   // };
+
+//   const hello = (who) => () => {
+//     console.log("hello", who);
+//   };
+
+//   const setToValue = (newValue) => {
+//     console.log(newValue);
+//     setValue(newValue);
+//   };
+//   return (
+//     <div>
+//       {value}
+//       <button onClick={() => setToValue(1000)}>Set to 1000</button>
+//       <button onClick={hello("world")}>button</button>
+//       <button onClick={hello("react")}>button</button>
+//       <button onClick={hello("function")}>button</button>
+//     </div>
+//   );
+// };
 
 const App = () => {
-  const [left, setLeft] = useState(0);
-  const [right, setRight] = useState(0);
+  const [value, setValue] = useState(10);
 
-  const [allClicks, setAll] = useState([]);
-  const [total, setTotal] = useState(0);
-
-  // const handleLeftClick = () => {
-  //   setAll(allClicks.concat("L"));
-  //   setLeft(left + 1);
-  //   setTotal(left + right);
-  // };
-
-  // const handleRightClick = () => {
-  //   setAll(allClicks.concat("R"));
-  //   setRight(right + 1);
-  //   setTotal(left + right);
-  // };
-
-  const handleLeftClick = () => {
-    setAll(allClicks.concat("L"));
-    const updatedLeft = left + 1;
-    setLeft(updatedLeft);
-    setTotal(updatedLeft + right);
-  };
-  const handleRightClick = () => {
-    setAll(allClicks.concat("R"));
-    const updatedRight = right + 1;
-    setRight(updatedRight);
-    setTotal(updatedRight + left);
+  const setToValue = (newValue) => {
+    console.log("value now", newValue);
+    setValue(newValue);
   };
 
   return (
     <div>
-      <Button onClick={handleLeftClick} text="Left" />
-      {left}
-      <br /> <hr />
-      <Button onClick={handleRightClick} text="Right" />
-      {right}
-      <p>{allClicks.join(" ")}</p>
-      <p>The Total is: {total}</p>
-      <History allClicks={allClicks} />
+      {value}
+      <button onClick={() => setToValue(1000)}>thousand</button>
+      <button onClick={() => setToValue(0)}>reset</button>
+      <button onClick={() => setToValue(value + 1)}>increment</button>
     </div>
   );
 };
-
 export default App;
