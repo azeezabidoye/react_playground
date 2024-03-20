@@ -272,6 +272,10 @@ import { useState } from "react";
 //   );
 // };
 
+const Button = ({ handleClick, text }) => {
+  return <button onClick={handleClick}>{text}</button>;
+};
+
 const App = () => {
   const [value, setValue] = useState(10);
 
@@ -283,9 +287,12 @@ const App = () => {
   return (
     <div>
       {value}
-      <button onClick={() => setToValue(1000)}>thousand</button>
+      {/* <button onClick={() => setToValue(1000)}>thousand</button>
       <button onClick={() => setToValue(0)}>reset</button>
-      <button onClick={() => setToValue(value + 1)}>increment</button>
+      <button onClick={() => setToValue(value + 1)}>increment</button> */}
+      <Button handleClick={() => setToValue(1000)} text="Thousand" />
+      <Button handleClick={() => setToValue(0)} text="Zero" />
+      <Button handleClick={() => setToValue(value + 1)} text="Plus++" />
     </div>
   );
 };
